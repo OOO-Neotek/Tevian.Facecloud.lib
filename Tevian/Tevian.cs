@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Net.Mime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
@@ -51,12 +52,13 @@ namespace Tevian
 
         public string jwt { get; protected set; }
 
-        protected JsonSerializerSettings jsonSettings = new JsonSerializerSettings
+        protected static JsonSerializerSettings jsonSettings = new JsonSerializerSettings
         {
             ContractResolver = new DefaultContractResolver
             {
                 NamingStrategy = new SnakeCaseNamingStrategy()
-            }
+            },
+            NullValueHandling = NullValueHandling.Ignore
         };
 
         protected class Response<TData>
@@ -66,6 +68,30 @@ namespace Tevian
             public string Message { get; set; }
         }
 
+        public static async Task<User> CreateAccount(string email, string password, string billingType = "demo")
+        {
+            var request = new HttpRequestMessage(HttpMethod.Post, baseUrl + "/" + "users");
+            request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            var contentString =
+                JsonConvert.SerializeObject(new User {Email = email, Password = password, BillingType = billingType},
+                    jsonSettings);
+            Console.WriteLine(contentString);
+            request.Content = new StringContent(
+                contentString,
+                Encoding.UTF8, "application/json");
+
+
+            var r = await client.SendAsync(request);
+
+            var resp = JsonConvert.DeserializeObject<Response<User>>(await r.Content.ReadAsStringAsync());
+
+
+            if (resp.StatusCode != 201)
+                throw new TevianException(resp.Message ?? "Unknown error.");
+            return resp.Data;
+        }
+
 
         private async Task<string> Login(string email, string password)
         {
@@ -73,13 +99,12 @@ namespace Tevian
 
 
             request.Content = new StringContent(
-                JsonConvert.SerializeObject(new {email = email, password = password}, jsonSettings),
+                JsonConvert.SerializeObject(new {email, password}, jsonSettings),
                 Encoding.UTF8, "application/json");
 
 
             var r = await client.SendAsync(request);
-
-            var resp = JsonConvert.DeserializeObject<Response<Login>>(await r.Content.ReadAsStringAsync());
+            var resp = JsonConvert.DeserializeObject<Response<Login>>(await r.Content.ReadAsStringAsync(), jsonSettings);
 
 
             if (resp.StatusCode != 200)

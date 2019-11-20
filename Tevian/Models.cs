@@ -127,7 +127,7 @@ namespace Tevian
         public string BillingType { get; set; }
         public dynamic Data { get; set; }
         public string Email { get; set; }
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public string Password { get; set; }
     }
 }
