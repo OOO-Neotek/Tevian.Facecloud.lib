@@ -46,9 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Tevian.Auth.cs" />
     <Compile Include="Tevian.cs" />
     <Compile Include="Models.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tevian.Database.cs" />
+    <Compile Include="Tevian.Person.cs" />
+    <Compile Include="Tevian.Photo.cs" />
+    <Compile Include="Tevian.Private.cs" />
+    <Compile Include="Tevian.Stateless.cs" />
+    <Compile Include="TevianException.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

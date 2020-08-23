@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tevian", "Tevian\Tevian.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{BE39D68A-050B-4BA7-BF2B-256043842E52}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingSuite", "TestingSuite\TestingSuite.csproj", "{3D86597A-5194-40A9-8C95-4CD3BEEE6BC5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tevian.NetStandard", "Tevian.NetStandard\Tevian.NetStandard.csproj", "{66809C5B-7FD3-42DD-8292-D2F90FE38E73}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{BE39D68A-050B-4BA7-BF2B-256043842E52}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE39D68A-050B-4BA7-BF2B-256043842E52}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE39D68A-050B-4BA7-BF2B-256043842E52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D86597A-5194-40A9-8C95-4CD3BEEE6BC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D86597A-5194-40A9-8C95-4CD3BEEE6BC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D86597A-5194-40A9-8C95-4CD3BEEE6BC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D86597A-5194-40A9-8C95-4CD3BEEE6BC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66809C5B-7FD3-42DD-8292-D2F90FE38E73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66809C5B-7FD3-42DD-8292-D2F90FE38E73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66809C5B-7FD3-42DD-8292-D2F90FE38E73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66809C5B-7FD3-42DD-8292-D2F90FE38E73}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

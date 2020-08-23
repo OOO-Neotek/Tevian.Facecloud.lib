@@ -1,0 +1,62 @@
+﻿<Window x:Class="TestingSuite.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestingSuite"
+        xmlns:System="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="720" Width="1560">
+    <Window.Resources>
+        <System:String x:Key="rxNumber">String</System:String>
+    </Window.Resources>
+    <StackPanel Orientation="Vertical" x:Name="MainPanel">
+        <DockPanel>
+            <StackPanel Margin="8" Orientation="Vertical" HorizontalAlignment="Left">
+                <StackPanel x:Name="AuthPanel">
+                    <local:LabeledTextBox Label="Email:" TextBox="" x:Name="LtbEmail" />
+                    <local:LabeledTextBox Label="Password:" TextBox="" x:Name="LtbPassw" />
+                    <DockPanel Margin="0,8,0,0">
+                        <Button Margin="0,0,8,0" Content="Create Demo Acc" Click="ButtonRegister_OnClick" />
+                        <Button Content="Login" Click="ButtonLogin_OnClick" />
+                    </DockPanel>
+                </StackPanel>
+                <TabControl Margin="0,8,0,0" x:Name="TabCtlAction">
+                    <TabItem Header="Detect" x:Name="TabActDetect">
+                        <StackPanel VerticalAlignment="Bottom">
+                            <local:SelectFile Margin="0,0,0,8" x:Name="DetectFpath" />
+                            <local:LabeledTextBox Label="fd_threshold" x:Name="fdThreshold"
+                                                  Regex="{StaticResource rxNumber}" />
+                            <local:LabeledTextBox Label="fd_min_size" x:Name="fdMinSize"
+                                                  Regex="{StaticResource rxNumber}" />
+                            <local:LabeledTextBox Label="fd_max_size" x:Name="fdMaxSize"
+                                                  Regex="{StaticResource rxNumber}" />
+                            <CheckBox Margin="0,4,0,0" x:Name="CbDemographics">Demographics</CheckBox>
+                            <CheckBox Margin="0,4,0,0" x:Name="CbAttributes">Attributes</CheckBox>
+                            <CheckBox Margin="0,4,0,0" x:Name="CbLandmarks">Landmarks</CheckBox>
+                            <CheckBox Margin="0,4,0,8" x:Name="CbLiveness">Liveness</CheckBox>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="Match" x:Name="TabActMatch">
+                        <StackPanel VerticalAlignment="Bottom">
+                            <local:SelectFile Margin="0,0,0,8" x:Name="Match1FPath"></local:SelectFile>
+                            <local:SelectFile Margin="0,0,0,8" x:Name="Match2FPath"></local:SelectFile>
+
+                            <local:LabeledTextBox Label="fd_threshold" x:Name="fdThreshold2"
+                                                  Regex="{StaticResource rxNumber}" />
+                            <local:LabeledTextBox Label="fd_min_size" x:Name="fdMinSize2"
+                                                  Regex="{StaticResource rxNumber}" />
+                            <local:LabeledTextBox Label="fd_max_size" x:Name="fdMaxSize2"
+                                                  Regex="{StaticResource rxNumber}" />
+
+                        </StackPanel>
+                    </TabItem>
+                </TabControl>
+                <Button VerticalAlignment="Bottom" Click="ButtonGo_OnClick" x:Name="BtnGo" IsEnabled="False">Go</Button>
+            </StackPanel>
+            <Image Width="640" Height="480" x:Name="ViewImage" Stretch="Uniform" />
+            <Image Width="640" Height="480" x:Name="ViewImage2" Stretch="Uniform" />
+        </DockPanel>
+        <RichTextBox Margin="0,8,0,0" VerticalAlignment="Bottom" MinHeight="200" x:Name="RtbLog" VerticalScrollBarVisibility="Auto" MaxHeight="200" TextChanged="RtbLog_TextChanged"/>
+    </StackPanel>
+</Window>

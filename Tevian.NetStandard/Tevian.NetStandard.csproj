@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+        <AssemblyName>Tevian</AssemblyName>
+        <RootNamespace>Tevian</RootNamespace>
+        <Title>Tevian</Title>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Include="..\Tevian\Models.cs">
+        <Link>Models.cs</Link>
+      </Compile>
+      <Compile Include="..\Tevian\Tevian.Auth.cs">
+        <Link>Tevian.Auth.cs</Link>
+      </Compile>
+      <Compile Include="..\Tevian\Tevian.cs">
+        <Link>Tevian.cs</Link>
+      </Compile>
+      <Compile Include="..\Tevian\Tevian.Database.cs">
+        <Link>Tevian.Database.cs</Link>
+      </Compile>
+      <Compile Include="..\Tevian\Tevian.Person.cs">
+        <Link>Tevian.Person.cs</Link>
+      </Compile>
+      <Compile Include="..\Tevian\Tevian.Photo.cs">
+        <Link>Tevian.Photo.cs</Link>
+      </Compile>
+      <Compile Include="..\Tevian\Tevian.Private.cs">
+        <Link>Tevian.Private.cs</Link>
+      </Compile>
+      <Compile Include="..\Tevian\Tevian.Stateless.cs">
+        <Link>Tevian.Stateless.cs</Link>
+      </Compile>
+      <Compile Include="..\Tevian\TevianException.cs">
+        <Link>TevianException.cs</Link>
+      </Compile>
+    </ItemGroup>
+
+</Project>
